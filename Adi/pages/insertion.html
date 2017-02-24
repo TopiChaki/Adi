@@ -1,0 +1,69 @@
+<!--<table>
+<tr>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+<td>d</td>
+<td>e</td>
+</tr>
+</table>-->
+
+
+	
+		<td>
+		<!--<span editable-text="insertion.count">
+		{{insertion.count || 'empty'}}
+		</span>-->
+		{{insertion.insertion}}
+		</td>
+		<!--BU-->
+		<td><select>
+				<option>BCS</option>
+				<option>CTC</option>
+				<option>DPR - Daily Press</option>
+				<option>HTF-CT1 Media</option>
+				<option>LAT</option>
+				<option>Motive8</option>
+				<option>Orlando Sentinal</option>
+				<option>SDT - San Diago</option>
+				<option>Sun Sentinal</option>
+				<option>T365 - National</option>
+				<option>The Morning Call</option>
+				<option>TIC</option>							
+		</select></td>
+		<!--PubDate-->
+		<td>
+		<!--<input type="date">-->
+		<input type="text" ng-model="date" jqdatepicker />
+<br/>
+{{ date }}
+		</td>
+		<!--Product type-->
+		<td><select>
+			<option>Display</option>
+			<option>Online</option>
+			<option>Direct mail</option>
+			<option>Periodical</option>
+			<option>Classified</option>
+			<option>Pre-print</option>
+			
+		</select></td>
+		<!--Product-->
+		<td><input type="text"></td>
+		<!--AdType-->
+		<td><select>
+			<option>type 1</option>
+			<option>type 2</option> 
+		</select></td>
+		<!--Section-->
+		<td><select>
+			<option>Main</option>
+			<option>Sports</option>
+			<option>Business</option>
+			<option>Entertainment</option>
+		</select></td>
+		<!--price-->
+		<td><label>{{insertion.price}}</label></td>
+		<!--status(new or submitted)-->
+		<td><label>new</label></td>
+	

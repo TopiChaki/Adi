@@ -1,0 +1,15 @@
+{
+
+var obj = {"nissan": "sentra", "color": "green"};
+localStorage.setItem('myStorage', JSON.stringify(obj));
+"insertions": [
+	{
+	"insertion":"1",
+	"price":"$230"
+	},
+	{
+	"insertion":"2",
+	"price":"$270"
+	}
+	]
+}

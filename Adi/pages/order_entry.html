@@ -1,0 +1,174 @@
+<style>
+input, select{
+	border: 1px solid #ffffff;
+	padding: 6px 12px;
+	border-radius: 4px;
+}
+input:hover, input:focus, select:hover, select:focus {
+	border-color: #ccccff;	
+	box-shadow: inset 0px 1px 2px;
+		padding: 6px 12px;
+}
+select{
+	 -moz-appearance: none;
+}
+table td{
+	padding: 10px;
+}
+.badgebox{
+    opacity: 0;
+	height: 10px;
+}
+.badgebox + .badge{
+    text-indent: -999999px;
+	margin:0px;
+	width: 30px;
+}
+.badgebox:hover + .badge{
+	box-shadow: inset 0px 0px 5px;    
+}
+.badgebox:checked + .badge{
+   	text-indent: 0;
+	text-color: #6600cc;
+}
+</style>
+<div>
+
+
+<form>
+		<div class="panel panel-value" style="margin-top: 3%;">
+			<div class="panel-body">
+				<label><h2> Account Information</h2></label>
+				<div>
+				
+					<table style="width: 100%;">
+						<tr>
+						<td>
+						<table>
+						<tr>
+						<td colspan="2">
+						<label><h4> Sold To: </h4></label>
+						</td></tr>
+						<tr><td>
+						Account No.: </td><td><input type="text" ng-model="sold_to_addr.account_no" ng-change="same_as && update()"></td></tr>
+						<tr><td>
+						Name: </td><td><input type="text" value="Chhagan" ng-model="sold_to_addr.name" ng-change="same_as && update()"></td></tr>
+						<tr><td>
+						Address: </td><td><input type="text" value="Ahmedabad" ng-model="sold_to_addr.address" ng-change="same_as && update()"></td></tr>
+						<tr><td>
+						Risk: </td><td><div class="material-switch">
+										<input id="someSwitchOptionDefault" ng-change="same_as && update()" ng-model="sold_to_addr.risk" name="someSwitchOption001" type="checkbox" style="display:none;"/>
+										<label for="someSwitchOptionDefault" class="label-default"></label>
+									</div></td></tr></table>
+						
+						</td>	
+
+						<td>
+						<table>
+						<tr>
+						<td colspan="2">
+						<label><h4> Bill To: </h4></label>
+						<!--<span style="margin-left: 20%;"><input type="checkbox" ng-model="soldtoissameasbillto"> Same as sold to
+						</span>					-->
+							<span style="float:right;">
+							<label for="primary" class="btn btn-primary" style="background-color:#6600cc;"><b>Same as sold to</b><input type="checkbox" ng-model="same_as" ng-change="same_as && update()" id="primary" class="badgebox"><span class="badge">&check;</span></label>
+							</span>
+						</td></tr>
+						<tr><td>
+						Account No.: </td><td><input type="text" ng-model="bill_to_addr.account_no" ng-disabled="same_as"></td></tr>
+						<tr><td>
+						Name: </td><td><input type="text" ng-model="bill_to_addr.name" ng-disabled="same_as"></td></tr>
+						<tr><td>
+						Address: </td><td><input type="text" ng-model="bill_to_addr.address" ng-disabled="same_as"></td></tr>
+						<tr><td>
+						Risk: </td><td><div class="material-switch1">
+										<input id="someSwitchOptionDefault1" ng-model="bill_to_addr.risk" name="someSwitchOption001" type="checkbox" style="display:none;"/>
+										<label for="someSwitchOptionDefault1" class="label-default"></label>
+									</div></td></tr></table>
+						
+						</td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<label><h2> Order Information</h2></label>
+				<div>
+				<table>
+					<tr><td>
+					Order Type: </td>
+					<td> <select class="selectpicker"> 
+					<option selected>Standard
+					<option>Filler
+					<option>Legal
+					<option>Trade
+					<option>House Ad
+					<option>Political
+					</select>
+					</td>
+					</tr>
+					<tr><td>
+					Payment Type: </td>
+					<td> <select class="selectpicker"> 
+					<option selected>Invoice
+					<option>Credit Card
+					<option>Cheque
+					<option>Cash
+					</select>
+					</td>
+					</tr>
+					<tr><td>
+					Confirmation Email:</td><td> 
+					<input type="text" value="guest@amail.com">
+					</td>
+					</tr>
+					<tr>
+					<td>
+					Affidavit Required: </td>
+					<td> 
+					<!--<input type="checkbox">-->
+									
+									<div class="material-switch">
+										<input id="someSwitchOptionDefault2" name="someSwitchOption001" type="checkbox" style="display:none;"/>
+										<label for="someSwitchOptionDefault2" class="label-default"></label>
+									</div>	
+					</td>
+					</tr>
+				</table>
+					
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h2>Insertions
+				<button type="button" class="btn" ng-click="addRow(insertion)" style="height:30px; background-color:#6600cc; color:white; float:right;"><p style="font-size:15px;"><b>Add</b></p></button>
+				</h2>
+				<div class="table-responsive">
+					<table class="table"> 
+						<tr>
+							<th>Insertion</th>
+							<th>Business Unit</th>
+							<th>PubDate</th>
+							<th>Product Type</th>
+							<th>Product</th>
+							<th>AdType</th>
+							<th>Section</th>
+							<th>Price</th>
+							<th>Status</th>
+						</tr>
+						<tr ng-repeat="insertion in insertions" ng-include src="'pages/insertion.html'">
+							
+						</tr>
+					</table>
+				</div>		
+			</div>
+		</div>
+</form>
+
+
+</div>
